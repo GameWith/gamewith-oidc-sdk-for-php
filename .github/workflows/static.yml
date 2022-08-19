@@ -1,0 +1,26 @@
+name: static
+on: [push]
+jobs:
+  static:
+    name: PHP Static Analyse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Download dependencies
+        run: composer update --no-interaction --no-progress
+
+      - name: Download bin dependencies
+        run: composer bin all update --no-interaction --no-progress
+
+      - name: Lint
+        run: composer lint
+
+      - name: Stan
+        run: composer stan

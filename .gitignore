@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+
+# IDE
+.idea
+.vscode
+
+# Cache
+.dccache
+*.cache
+
+# Composer
+vendor/
+composer.phar
+composer.lock
+
+# PHP
+/phpstan.nexon
+/phpunit.xml
+build/
+artifacts/
